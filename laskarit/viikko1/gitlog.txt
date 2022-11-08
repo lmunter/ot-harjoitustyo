@@ -1,0 +1,95 @@
+commit ee61177bc33a76fc7a88bdb5495ec049cc583315
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 13:16:13 2022 +0200
+
+    poisto ja uudelleennimentä
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 079fd0b44b54ad24db7c4a03509e2edb38d2b159
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 13:10:35 2022 +0200
+
+    tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 5debe75ee17b7dab24e75395be7e1832ca0a51c8
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:43:26 2022 +0200
+
+    muutoksia teht. 9 varten
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 87cd71b5d56fbf60ad6602e570cc60a1946c7612
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:38:17 2022 +0200
+
+    tiedosto uudelleennimetty
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6e00988b072f4f14a0c4501a5f478b215a5ca0df
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:37:27 2022 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 96b69f3cee2929e8086df71e2ed469c96ccfa071
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:32:42 2022 +0200
+
+    hakemisto ja tiedosto
+
+ stuff/jokin_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d12e6d09e44fcb422f62d3e1034f9d5293317e6e
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:31:02 2022 +0200
+
+    muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit cb045f756363b52e09a7f3bea7ec5c8e51977ad4
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:29:43 2022 +0200
+
+    kolmas luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 11948b540d04f0d80ba6f986fca81741bd9ceed2
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:25:37 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 427af82679fff94bea0b56d11411c1421e6d18ff
+Author: lmunter <lassi.munter@gmail.com>
+Date:   Tue Nov 8 12:22:29 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
