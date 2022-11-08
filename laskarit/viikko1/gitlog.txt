@@ -1,3 +1,5 @@
+muutos epäsynkronointia varten
+
 commit ee61177bc33a76fc7a88bdb5495ec049cc583315
 Author: lmunter <lassi.munter@gmail.com>
 Date:   Tue Nov 8 13:16:13 2022 +0200
