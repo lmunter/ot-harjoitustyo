@@ -1,7 +1,3 @@
-## Otsikko
-Tavallista tekstiä.
-**Ehkä hieman paksua ja pulleaa tekstiä.**
-*Tai kenties vinoa tekstiä.*
-***Tai molempia samaan aikaan!***
-**Hmm... Ehkä vain _osa_ tekstistä molemmilla**
-~~Hups! Ei ollut tarkoitus kirjoittaa tätä.~~
+## Tehtävät
+[gitlog.txt](https://github.com/lmunter/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](https://github.com/lmunter/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
