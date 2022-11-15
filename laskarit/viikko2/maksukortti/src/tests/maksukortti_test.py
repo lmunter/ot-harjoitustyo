@@ -4,11 +4,10 @@ from maksukortti import Maksukortti
 class TestMaksukortti(unittest.TestCase):
     def setUp(self):
         kortti = Maksukortti(1000)
-
+	
     def test_konstruktori_asettaa_saldon_oikein(self):
-	vastaus = str(kortti)
-	self.assertEqual(vastaus, "Kortilla on rahaa 10.00 euroa")
-
+	self.assertEqual(str(kortti), "Kortilla on rahaa 10.00 euroa")
+	
     def test_syo_edullisesti_vahentaa_saldoa_oikein(self):
 	kortti.syo_edullisesti()
 	self.assertEqual(str(kortti), "Kortilla on rahaa 7.50 euroa")
