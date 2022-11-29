@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python src/index.py", pty = True)
+    ctx.run("python index.py", pty = True)
 
 @task
 def coverage(ctx):
