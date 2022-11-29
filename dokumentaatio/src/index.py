@@ -7,7 +7,8 @@ dirname = os.path.dirname(__file__)
 class Pelaaja(pygame.sprite.Sprite):
     def __init__(self):
         super(Pelaaja, self).__init__()
-        self.surf = pygame.image.load(os.path.join(dirname, "assets", "pelaaja.jpg"))
+        self.image = os.path.join(dirname, "assets", "pelaaja.jpg")
+        self.surf = pygame.image.load(self.image)
         self.surf.set_colorkey((255, 255, 255))
         self.rect = self.surf.get_rect()
 
@@ -26,6 +27,7 @@ class Peli:
         alusta = Alusta()
 
         screen = pygame.display.set_mode([500, 500])
+        pygame.display.set_caption("Maikkeli rotkoon")
 
         running = True
         while running:
