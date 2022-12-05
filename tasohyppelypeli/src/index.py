@@ -5,52 +5,59 @@ from player import Player
 class Game:
     def __init__(self):
         pygame.init()
-        player = Player()
-        platform = Platform()
-        platform2 = Platform()
-        platform2.rect.x = platform.width + 100
+
+        #luodaan oliot
+        self.player = Player()
+        self.platform = Platform()
+        self.platform2 = Platform()
+        self.platform2.rect.x = self.platform.width + 100
 
         screen = pygame.display.set_mode([1920, 1080])
         pygame.display.set_caption("Skeittaaja rotkoon")
 
-        running = True
-        while running:
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        running = False
-                    elif event.key == pygame.K_SPACE:
-                        if can_jump:
-                            player.jump()
+        #pelisilmukka
+        self.running = True
+        while self.running:
+            self.check_events()
             
-            #painovoima
-            sprite_list = [player]
-            if player not in pygame.sprite.spritecollide(platform, sprite_list, False) \
-            and player not in pygame.sprite.spritecollide(platform2, sprite_list, False):
-                can_jump = False
-                player.rect.y += 1  
-            else:
-                can_jump = True
+            self.gravity()
             
-            platform.rect.x -= 1
-            if platform.rect.x == -(platform.width):
-                platform = Platform()
-                platform.rect.x = platform2.width + 200
-            platform2.rect.x -= 1
-            if platform2.rect.x == -(platform2.width):
-                platform2 = Platform()
-                platform2.rect.x = platform.width + 200
+            self.platform.rect.x -= 1
+            if self.platform.rect.x == -(self.platform.width):
+                self.platform = Platform()
+                self.platform.rect.x = self.platform2.width + 200
+            self.platform2.rect.x -= 1
+            if self.platform2.rect.x == -(self.platform2.width):
+                self.platform2 = Platform()
+                self.platform2.rect.x = self.platform.width + 200
 
             screen.fill((235, 235, 235))
-            screen.blit(player.surf, player.rect)
-            screen.blit(platform.surf, platform.rect)
-            screen.blit(platform2.surf, platform2.rect)
+            screen.blit(self.player.surf, self.player.rect)
+            screen.blit(self.platform.surf, self.platform.rect)
+            screen.blit(self.platform2.surf, self.platform2.rect)
             pygame.display.flip()
 
         pygame.quit()
+
+    def check_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    self.running = False
+                elif event.key == pygame.K_SPACE:
+                    if self.can_jump:
+                        self.player.jump()
+    
+    def gravity(self):
+        sprite_list = [self.player]
+        if self.player not in pygame.sprite.spritecollide(self.platform, sprite_list, False) \
+        and self.player not in pygame.sprite.spritecollide(self.platform2, sprite_list, False):
+            self.can_jump = False
+            self.player.rect.y += 1  
+        else:
+            self.can_jump = True
 
 if __name__ == "__main__":
     Game()
