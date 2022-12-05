@@ -11,7 +11,7 @@ Pelissä ohjataan skeittaajaa, jota pitää estää putoamasta rotkoon hyppääm
 ## Ohjeet käynnistykseen
 
 1. Kloonaa repositorio
-2. Navigoi dokumentaatio-hakemistoon
+2. Navigoi tasohyppelypeli-hakemistoon
 3. Asenna riippuvuudet komennolla 'poetry install'
 4. Aktivoi virtuaaliympäristö komennolla 'poetry shell'
 5. Käynnistä peli komennolla 'poetry run python src/index.py' (invoke tulossa asap)
