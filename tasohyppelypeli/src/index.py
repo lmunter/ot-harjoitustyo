@@ -1,5 +1,5 @@
 import pygame
-from platform import Platform
+from my_platform import Platform
 from player import Player
 
 class Game:
@@ -20,7 +20,7 @@ class Game:
         while self.running:
             self.check_events()
             
-            self.gravity()
+            self.gravity(self.player, self.platform, self.platform2)
             
             self.platform.rect.x -= 1
             if self.platform.rect.x == -(self.platform.width):
@@ -50,10 +50,10 @@ class Game:
                     if self.can_jump:
                         self.player.jump()
     
-    def gravity(self):
-        sprite_list = [self.player]
-        if self.player not in pygame.sprite.spritecollide(self.platform, sprite_list, False) \
-        and self.player not in pygame.sprite.spritecollide(self.platform2, sprite_list, False):
+    def gravity(self, player, platform1, platform2):
+        sprite_list = [player]
+        if player not in pygame.sprite.spritecollide(platform1, sprite_list, False) \
+        and player not in pygame.sprite.spritecollide(platform2, sprite_list, False):
             self.can_jump = False
             self.player.rect.y += 1  
         else:

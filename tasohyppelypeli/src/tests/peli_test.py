@@ -11,3 +11,7 @@ class TestPlayer(unittest.TestCase):
         path = os.path.split(dirname)
         expected = os.path.join(path[0], "assets", "pelaaja.jpg")
         self.assertEqual(self.player.image, expected)
+    
+    def test_player_jumps_when_called(self):
+        self.player.jump()
+        self.assertEqual(self.player.rect.y, 780)

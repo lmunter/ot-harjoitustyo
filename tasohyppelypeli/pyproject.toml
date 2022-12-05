@@ -10,6 +10,7 @@ python = "^3.8"
 pygame = "^2.1.2"
 invoke = "^1.7.3"
 pylint = "^2.15.7"
+coverage = "^6.5.0"
 
 
 [tool.poetry.group.dev.dependencies]
