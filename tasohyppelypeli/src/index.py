@@ -1,35 +1,6 @@
 import pygame
-import os
-import random
-
-dirname = os.path.dirname(__file__)
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Player, self).__init__()
-        self.image = os.path.join(dirname, "assets", "pelaaja.jpg")
-        self.surf = pygame.image.load(self.image)
-        self.surf.set_colorkey((255, 255, 255))
-        self.rect = self.surf.get_rect()
-        self.rect.x = 50
-        self.rect.y = 980
-    
-    def jump(self):
-        jump = True
-        while jump:
-            while self.rect.y > 780:
-                self.rect.y -= 1
-            jump = False
-
-class Platform(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Platform, self).__init__()
-        self.width = random.randint(1300, 1700)
-        self.surf = pygame.Surface((self.width, 50))
-        self.surf.fill((10, 10, 10))
-        self.rect = self.surf.get_rect()
-        self.rect.x = 0
-        self.rect.y = 1030
+from platform import Platform
+from player import Player
 
 class Game:
     def __init__(self):

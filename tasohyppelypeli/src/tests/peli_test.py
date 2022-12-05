@@ -1,6 +1,6 @@
 import unittest
 import os
-from index import Player
+from player import Player
 
 class TestPlayer(unittest.TestCase):
     def setUp(self):
