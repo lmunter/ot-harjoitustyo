@@ -1,13 +1,13 @@
 import unittest
 import os
-from index import Pelaaja
+from index import Player
 
-class TestPelaaja(unittest.TestCase):
+class TestPlayer(unittest.TestCase):
     def setUp(self):
-        self.pelaaja = Pelaaja()
+        self.player = Player()
     
-    def test_pelaajalla_on_oikea_sprite(self):
+    def test_player_has_correct_sprite(self):
         dirname = os.path.dirname(__file__)
-        polku = os.path.split(dirname)
-        odotettu_tulos = os.path.join(polku[0], "assets", "pelaaja.jpg")
-        self.assertEqual(self.pelaaja.image, odotettu_tulos)
+        path = os.path.split(dirname)
+        expected = os.path.join(path[0], "assets", "pelaaja.jpg")
+        self.assertEqual(self.player.image, expected)
