@@ -4,14 +4,26 @@ Pelissä ohjataan skeittaajaa, jota pitää estää putoamasta rotkoon hyppääm
 
 ## Linkkejä
 
-[Tuntikirjapito](https://github.com/lmunter/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Release 1](https://github.com/lmunter/ot-harjoitustyo/releases/tag/viikko5)
 
-[Changelog](https://github.com/lmunter/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+[Vaatimusmäärittely](https://github.com/lmunter/ot-harjoitustyo/blob/master/tasohyppelypeli/dokumentaatio/vaatimusmaarittely.md)
+
+[Tuntikirjapito](https://github.com/lmunter/ot-harjoitustyo/blob/master/tasohyppelypeli/dokumentaatio/tuntikirjanpito.md)
+
+[Changelog](https://github.com/lmunter/ot-harjoitustyo/blob/master/tasohyppelypeli/dokumentaatio/changelog.md)
 
 ## Ohjeet käynnistykseen
 
-1. Kloonaa repositorio
+1. Kloonaa repositorio tai hae viimeisin release
 2. Navigoi tasohyppelypeli-hakemistoon
 3. Asenna riippuvuudet komennolla 'poetry install'
 4. Aktivoi virtuaaliympäristö komennolla 'poetry shell'
-5. Käynnistä peli komennolla 'poetry run python src/index.py' (invoke tulossa asap)
+5. Käynnistä peli komennolla 'poetry run invoke start'
+
+## Muita ohjeita
+
+Huom. seuraavat komennot pitää suorittaa virtuaaliympäristössä.
+
+- Testit saa suoritettua komennolla 'poetry run invoke tests'
+- Coverage-raportin saa komennolla 'poetry run invoke coverage-report'
+- Pylint-tarkastuksen saa komennolla 'poetry run invoke lint'
