@@ -8,4 +8,6 @@
 | 29.11.| 6 | Testi, invoke ja rakenteenmuutos. |
 | 3.12. | 6 | Pelaajan hyppäys. |
 | 4.12. | 5 | Alustat liikkuu. |
-| Tunteja yhteensä: | 30 |
+| 5.12. | 6 | Refaktorointia ja rakennemuutoksia. |
+| 6.12. | 5 | Refaktorointia, testejä ja invoke-komentoja. |
+| Tunteja yhteensä: | 41 |
