@@ -7,3 +7,11 @@
 
 - Lisätty Alusta-luokka, joka vastaa alustasta, jonka päällä pelaaja liikkuu
 - Lisätty testejä ja invoke-komentoja
+
+## Viikko 5
+
+- Pelistä on nyt ensimmäinen toimiva versio
+- Luokat on siirretty omiin tiedostoihinsa
+- Koodia on siistitty
+- Lisätty testejä ja invoke-komentoja
+- Tiedostorakennetta on muutettu
