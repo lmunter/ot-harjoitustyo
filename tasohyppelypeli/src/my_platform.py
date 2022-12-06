@@ -1,9 +1,9 @@
-import pygame
 import random
+import pygame
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self):
-        super(Platform, self).__init__()
+        super().__init__()
         self.width = random.randint(1300, 1700)
         self.surf = pygame.Surface((self.width, 50))
         self.surf.fill((10, 10, 10))
