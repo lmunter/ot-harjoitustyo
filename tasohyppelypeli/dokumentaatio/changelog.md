@@ -15,3 +15,8 @@
 - Koodia on siistitty
 - Lisätty testejä ja invoke-komentoja
 - Tiedostorakennetta on muutettu
+
+## Viikko 6
+
+- Lisätty etusivu ja häviöruutu
+- Pelaajaa ja alustoja on nostettu hieman
