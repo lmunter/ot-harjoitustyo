@@ -11,11 +11,11 @@ class Player(pygame.sprite.Sprite):
         self.surf.set_colorkey((255, 255, 255))
         self.rect = self.surf.get_rect()
         self.rect.x = 50
-        self.rect.y = 980
+        self.rect.y = 880
 
     def jump(self):
         jump = True
         while jump:
-            while self.rect.y > 780:
+            while self.rect.y > 680:
                 self.rect.y -= 1
             jump = False

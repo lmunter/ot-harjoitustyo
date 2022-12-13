@@ -9,4 +9,4 @@ class Platform(pygame.sprite.Sprite):
         self.surf.fill((10, 10, 10))
         self.rect = self.surf.get_rect()
         self.rect.x = 0
-        self.rect.y = 1030
+        self.rect.y = 930

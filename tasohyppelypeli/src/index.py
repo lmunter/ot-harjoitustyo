@@ -1,3 +1,4 @@
+import sys
 import pygame
 from my_platform import Platform
 from player import Player
@@ -6,6 +7,11 @@ class Game:
     def __init__(self):
         pygame.init()
         self.font = pygame.font.SysFont("Arial", 24)
+        self.player = Player()
+        self.platform = Platform()
+        self.platform2 = Platform()
+        self.platform2.rect.x = self.platform.width + 100
+        self.can_jump = True
 
         self.screen = pygame.display.set_mode([1920, 1080])
         pygame.display.set_caption("Skeittaaja rotkoon")
@@ -13,27 +19,20 @@ class Game:
 
     def main_menu(self):
         main_menu_text = self.font.render("Skeittaaja rotkoon", True, (0, 0, 0))
-        main_menu_instructions = self.font.render("SPACE - Uusi peli    ESC - Sulje peli", True, (0, 0, 0))
+        main_menu_instructions = self.font.render(
+            "F2 - Uusi peli    ESC - Sulje peli", True, (0, 0, 0)
+            )
         self.screen.fill((235, 235, 235))
         self.screen.blit(main_menu_text, (660, 340))
         self.screen.blit(main_menu_instructions, (660, 440))
         pygame.display.flip()
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    exit()
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        exit()
-                    elif event.key == pygame.K_SPACE:
-                        self.new_game()
+            self.check_events()
 
     def new_game(self):
-        self.player = Player()
-        self.platform = Platform()
-        self.platform2 = Platform()
+        self.player.rect.y = 880
+        self.platform.rect.x = 0
         self.platform2.rect.x = self.platform.width + 100
-
         while True:
             self.check_events()
 
@@ -49,25 +48,20 @@ class Game:
             self.screen.blit(self.platform2.surf, self.platform2.rect)
             pygame.display.flip()
 
-            if self.player.rect.y >= 1080:
+            if self.player.rect.y >= 980:
                 self.game_over()
 
     def game_over(self):
         self.screen.fill((235, 235, 235))
         game_over_text = self.font.render("Game Over", True, (0, 0, 0))
-        game_over_instructions = self.font.render("SPACE - Main menu    ESCAPE - Sulje peli", True, (0, 0, 0))
+        game_over_instructions = self.font.render(
+            "F2 - Uusi peli    ESCAPE - Sulje peli", True, (0, 0, 0)
+            )
         self.screen.blit(game_over_text, (660, 440))
         self.screen.blit(game_over_instructions, (660, 540))
         pygame.display.flip()
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    exit()
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        exit()
-                    elif event.key == pygame.K_SPACE:
-                        self.main_menu()
+            self.check_events()
 
     def recycle_platforms(self):
         if self.platform.rect.x == -(self.platform.width):
@@ -80,16 +74,18 @@ class Game:
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
+                sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self.check_pressed_keys(event)
 
     def check_pressed_keys(self, event):
         if event.key == pygame.K_ESCAPE:
-            exit()
+            sys.exit()
         elif event.key == pygame.K_SPACE:
             if self.can_jump:
                 self.player.jump()
+        elif event.key == pygame.K_F2:
+            self.new_game()
 
     def gravity(self, player, platform1, platform2):
         sprite_list = [player]
