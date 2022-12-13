@@ -15,16 +15,16 @@ class Game:
         main_menu_text = self.font.render("Skeittaaja rotkoon", True, (0, 0, 0))
         main_menu_instructions = self.font.render("SPACE - Uusi peli    ESC - Sulje peli", True, (0, 0, 0))
         self.screen.fill((235, 235, 235))
-        self.screen.blit(main_menu_text, (960, 340))
-        self.screen.blit(main_menu_instructions, (960, 440))
+        self.screen.blit(main_menu_text, (660, 340))
+        self.screen.blit(main_menu_instructions, (660, 440))
         pygame.display.flip()
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
+                    exit()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        pygame.quit()
+                        exit()
                     elif event.key == pygame.K_SPACE:
                         self.new_game()
 
@@ -56,16 +56,16 @@ class Game:
         self.screen.fill((235, 235, 235))
         game_over_text = self.font.render("Game Over", True, (0, 0, 0))
         game_over_instructions = self.font.render("SPACE - Main menu    ESCAPE - Sulje peli", True, (0, 0, 0))
-        self.screen.blit(game_over_text, (960, 440))
-        self.screen.blit(game_over_instructions, (960, 540))
+        self.screen.blit(game_over_text, (660, 440))
+        self.screen.blit(game_over_instructions, (660, 540))
         pygame.display.flip()
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
+                    exit()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        pygame.quit()
+                        exit()
                     elif event.key == pygame.K_SPACE:
                         self.main_menu()
 
@@ -80,13 +80,13 @@ class Game:
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                exit()
             elif event.type == pygame.KEYDOWN:
                 self.check_pressed_keys(event)
 
     def check_pressed_keys(self, event):
         if event.key == pygame.K_ESCAPE:
-            pygame.quit()
+            exit()
         elif event.key == pygame.K_SPACE:
             if self.can_jump:
                 self.player.jump()
