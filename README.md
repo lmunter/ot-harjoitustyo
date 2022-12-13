@@ -4,7 +4,7 @@ Pelissä ohjataan skeittaajaa, jota pitää estää putoamasta rotkoon hyppääm
 
 ## Linkkejä
 
-[Release 1](https://github.com/lmunter/ot-harjoitustyo/releases/tag/viikko5)
+[Uusin release](https://github.com/lmunter/ot-harjoitustyo/releases/tag/viikko6)
 
 [Vaatimusmäärittely](https://github.com/lmunter/ot-harjoitustyo/blob/master/tasohyppelypeli/dokumentaatio/vaatimusmaarittely.md)
 
