@@ -14,4 +14,4 @@ class TestPlayer(unittest.TestCase):
     
     def test_player_jumps_when_called(self):
         self.player.jump()
-        self.assertEqual(self.player.rect.y, 780)
+        self.assertEqual(self.player.rect.y, 680)
