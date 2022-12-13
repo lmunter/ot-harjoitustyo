@@ -10,4 +10,6 @@
 | 4.12. | 5 | Alustat liikkuu. |
 | 5.12. | 6 | Refaktorointia ja rakennemuutoksia. |
 | 6.12. | 5 | Refaktorointia, testejä ja invoke-komentoja. |
-| Tunteja yhteensä: | 41 |
+| 12.12. | 5 | Lisäsin etusivun ja häviöruudun. |
+| 13.12. | 5 | Refaktorointia ja testausta. |
+| Tunteja yhteensä: | 51 |
