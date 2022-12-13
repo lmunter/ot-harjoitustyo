@@ -17,12 +17,9 @@ Pelissä ohjataan skeittaajaa, jota pitää estää putoamasta rotkoon hyppääm
 1. Kloonaa repositorio tai hae viimeisin release
 2. Navigoi tasohyppelypeli-hakemistoon
 3. Asenna riippuvuudet komennolla 'poetry install'
-4. Aktivoi virtuaaliympäristö komennolla 'poetry shell'
-5. Käynnistä peli komennolla 'poetry run invoke start'
+4. Käynnistä peli komennolla 'poetry run invoke start'
 
 ## Muita ohjeita
-
-Huom. seuraavat komennot pitää suorittaa virtuaaliympäristössä.
 
 - Testit saa suoritettua komennolla 'poetry run invoke tests'
 - Coverage-raportin saa komennolla 'poetry run invoke coverage-report'
