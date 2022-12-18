@@ -12,4 +12,6 @@
 | 6.12. | 5 | Refaktorointia, testejä ja invoke-komentoja. |
 | 12.12. | 5 | Lisäsin etusivun ja häviöruudun. |
 | 13.12. | 5 | Refaktorointia ja testausta. |
-| Tunteja yhteensä: | 51 |
+| 17.12. | 4 | Pistelaskuri ja testausta. |
+| 18.12. | 6 | Ennätyksien talletus ja testausta. |
+| Tunteja yhteensä: | 61 |
