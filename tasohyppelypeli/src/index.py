@@ -3,8 +3,7 @@ import pygame
 from my_platform import Platform
 from player import Player
 
-#tehtävää vielä: viimeistele ennätyspisteiden tallennus ja luettelu
-#                dokumentaatio docstring-menetelmällä
+#tehtävää vielä: dokumentaatio docstring-menetelmällä
 #                luokka- ja sekvenssikaaviot
 #                tee lisää testejä
 class Game:
@@ -30,12 +29,25 @@ class Game:
         main_menu_instructions = self.font.render(
             "F2 - Uusi peli    ESC - Sulje peli", True, (0, 0, 0)
             )
+        high_score_text = self.font.render("Parhaat tulokset", True, (0, 0, 0))
         self.screen.fill((235, 235, 235))
-        self.screen.blit(main_menu_text, (660, 340))
-        self.screen.blit(main_menu_instructions, (660, 440))
+        self.render_high_scores()
+        self.screen.blit(main_menu_text, (660, 350))
+        self.screen.blit(main_menu_instructions, (660, 450))
+        self.screen.blit(high_score_text, (660, 550))
         pygame.display.flip()
         while True:
             self.check_events()
+
+    def render_high_scores(self):
+        y_counter = 600
+        for high_score in self.high_scores:
+            self.screen.blit(
+                self.font.render(
+                    f"{high_score[0]} - {high_score[1]}", True, (0, 0, 0)
+                    ), (660, y_counter)
+                )
+            y_counter += 50
 
     def new_game(self):
         self.points = 0
@@ -66,7 +78,7 @@ class Game:
                 self.check_high_scores()
 
     def check_high_scores(self):
-        if len(self.high_scores) == 0:
+        if len(self.high_scores) <= 4:
             self.input_name()
         else:
             for high_score in self.high_scores:
@@ -80,14 +92,14 @@ class Game:
         game_over_instructions = self.font.render(
             "F1 - Etusivulle    F2 - Uusi peli    ESCAPE - Sulje peli", True, (0, 0, 0)
             )
-        self.screen.blit(game_over_text, (660, 440))
-        self.screen.blit(game_over_instructions, (660, 540))
+        self.screen.blit(game_over_text, (660, 450))
+        self.screen.blit(game_over_instructions, (660, 550))
         pygame.display.flip()
         while True:
             self.check_events()
 
     def input_name(self):
-        input_field = pygame.Rect(760, 540, 500, 24)
+        input_field = pygame.Rect(760, 550, 500, 24)
         self.text_input = ""
         writing = True
         while writing:
@@ -102,7 +114,7 @@ class Game:
             user_text_input = self.font.render(self.text_input, True, (0, 0, 0))
             self.screen.blit(congratulations, (760, 400))
             self.screen.blit(input_instructions, (760, 500))
-            self.screen.blit(user_text_input, (input_field.x-5, input_field.y-5))
+            self.screen.blit(user_text_input, (input_field.x+5, input_field.y-5))
             self.screen.blit(input_instructions2, (760, 600))
             pygame.draw.rect(self.screen, (0, 0, 255), input_field, 2)
             pygame.display.flip()
@@ -112,7 +124,7 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.high_scores.append((self.text_input, self.points))
-                    self.high_scores = sorted(self.high_scores, key=lambda points: points[1])
+                    self.high_scores = sorted(self.high_scores, key=lambda points: points[1], reverse=True)
                     self.high_scores = self.high_scores[:4]
                     self.game_over()
                 elif event.key == pygame.K_BACKSPACE:
