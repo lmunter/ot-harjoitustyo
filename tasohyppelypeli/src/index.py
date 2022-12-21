@@ -7,7 +7,25 @@ from player import Player
 #                luokka- ja sekvenssikaaviot
 #                tee lisää testejä
 class Game:
+    """Class that gathers the pieces of the game and sets it up.
+
+        Attributes:
+            clock:  pygame clock-object manages game speed
+            font: remembers what font to use for text
+            player: player-object manages player attributes
+            platforms 1 and 2: platform-objects manage platform attributes
+            can_jump: remembers whether the player can jump or not
+            points: counts player's score
+            high_scores: list containing at most five highest scores
+            screen: initializes a display surface and manages it
+    """
+
     def __init__(self, testing = False):
+        """Constructor that starts the game.
+        
+        Args:
+            testing: if set to True, only initializes the attributes (False by deafult)
+        """
         pygame.init()
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont("Arial", 24)
@@ -25,6 +43,9 @@ class Game:
             self.main_menu()
 
     def main_menu(self):
+        """Displays the main menu and waits for user input
+
+        """
         main_menu_text = self.font.render("Skeittaaja rotkoon", True, (0, 0, 0))
         main_menu_instructions = self.font.render(
             "F2 - Uusi peli    ESC - Sulje peli", True, (0, 0, 0)
@@ -40,6 +61,9 @@ class Game:
             self.check_events()
 
     def render_high_scores(self):
+        """Sets recorded highscores on display.
+
+        """
         y_counter = 600
         for high_score in self.high_scores:
             self.screen.blit(
@@ -50,6 +74,9 @@ class Game:
             y_counter += 50
 
     def new_game(self):
+        """Starts the actual game.
+
+        """
         self.points = 0
         self.player.rect.y = 880
         self.platform1.rect.x = 0
@@ -78,6 +105,9 @@ class Game:
                 self.check_high_scores()
 
     def check_high_scores(self):
+        """Checks if the new score is high enough for display.
+
+        """
         if len(self.high_scores) <= 4:
             self.input_name()
         else:
@@ -87,6 +117,9 @@ class Game:
         self.game_over()
 
     def game_over(self):
+        """Displays the 'game over'-screen.
+
+        """
         self.screen.fill((235, 235, 235))
         game_over_text = self.font.render("Game Over", True, (0, 0, 0))
         game_over_instructions = self.font.render(
@@ -99,6 +132,10 @@ class Game:
             self.check_events()
 
     def input_name(self):
+        """Displays relevant items for player to input their name.
+
+        Called on when player gets a new high score.
+        """
         input_field = pygame.Rect(760, 550, 500, 24)
         self.text_input = ""
         writing = True
@@ -120,6 +157,9 @@ class Game:
             pygame.display.flip()
 
     def check_user_input(self):
+        """Records what the player is typing.
+
+        """
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
@@ -130,9 +170,13 @@ class Game:
                 elif event.key == pygame.K_BACKSPACE:
                     self.text_input = self.text_input[:-1]
                 else:
-                    self.text_input += event.unicode
+                    if len(self.text_input) <= 10:
+                        self.text_input += event.unicode
 
     def recycle_platforms(self):
+        """Whenever a platform goes off-screen, it is recycled back to the other side.
+
+        """
         if self.platform1.rect.x <= -(self.platform1.width):
             self.platform1 = Platform()
             self.platform1.rect.x = self.platform2.width + 200
@@ -141,6 +185,9 @@ class Game:
             self.platform2.rect.x = self.platform1.width + 200
 
     def check_events(self):
+        """Checks what the player is pressing.
+
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -148,6 +195,11 @@ class Game:
                 self.check_pressed_keys(event)
 
     def check_pressed_keys(self, event):
+        """Checks if the pressed key is a valid command.
+
+        Args:
+            event: pygame event-object with a type of KEYDOWN
+        """
         if event.key == pygame.K_ESCAPE:
             sys.exit()
         elif event.key == pygame.K_SPACE:
@@ -159,6 +211,12 @@ class Game:
             self.main_menu()
 
     def gravity(self, player, platform1, platform2):
+        """Pulls the player downwards unless colliding with a platform.
+
+        Args:
+            player: player-object, the player that is to be pulled
+            platforms 1 and 2: platform-objects that stop the player from falling endlessly
+        """
         sprite_list = [player]
         if player not in pygame.sprite.spritecollide(platform1, sprite_list, False) \
         and player not in pygame.sprite.spritecollide(platform2, sprite_list, False):
