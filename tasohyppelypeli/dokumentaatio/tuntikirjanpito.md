@@ -14,4 +14,6 @@
 | 13.12. | 5 | Refaktorointia ja testausta. |
 | 17.12. | 4 | Pistelaskuri ja testausta. |
 | 18.12. | 6 | Ennätyksien talletus ja testausta. |
-| Tunteja yhteensä: | 61 |
+| 19.12. | 2 | Hienosäätöä. |
+| 21.12. | 2 | Docstring-dokumentaatiota. |
+| Tunteja yhteensä: | 65 |
