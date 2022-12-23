@@ -3,8 +3,7 @@ import pygame
 from my_platform import Platform
 from player import Player
 
-#tehtävää vielä: dokumentaatio docstring-menetelmällä
-#                luokka- ja sekvenssikaaviot
+#tehtävää vielä: luokka- ja sekvenssikaaviot
 #                tee lisää testejä
 class Game:
     """Class that gathers the pieces of the game and sets it up.
@@ -22,7 +21,7 @@ class Game:
 
     def __init__(self, testing = False):
         """Constructor that starts the game.
-        
+
         Args:
             testing: if set to True, only initializes the attributes (False by deafult)
         """
@@ -52,7 +51,7 @@ class Game:
             )
         high_score_text = self.font.render("Parhaat tulokset", True, (0, 0, 0))
         self.screen.fill((235, 235, 235))
-        self.render_high_scores()
+        self.render_high_scores(660, 600)
         self.screen.blit(main_menu_text, (660, 350))
         self.screen.blit(main_menu_instructions, (660, 450))
         self.screen.blit(high_score_text, (660, 550))
@@ -60,18 +59,30 @@ class Game:
         while True:
             self.check_events()
 
-    def render_high_scores(self):
-        """Sets recorded highscores on display.
+    def render_high_scores(self, x_pos, y_pos):
+        """Sets recorded high scores on display in a neat box.
 
+        Args:
+            x_pos: position of the box on the x-axis
+            y_pos: position of the box on the y-axis
         """
-        y_counter = 600
-        for high_score in self.high_scores:
+        y_counter = y_pos
+        high_score_container = pygame.Rect(x_pos, y_pos, 200, 250)
+        pygame.draw.rect(self.screen, (0, 255, 0), high_score_container, 2)
+        if len(self.high_scores) == 0:
             self.screen.blit(
                 self.font.render(
-                    f"{high_score[0]} - {high_score[1]}", True, (0, 0, 0)
-                    ), (660, y_counter)
+                    "Tyhjää täynnä :(", True, (0, 0, 0)
+                ), (x_pos+10, y_counter+10)
+            )
+        else:
+            for high_score in self.high_scores:
+                self.screen.blit(
+                    self.font.render(
+                        f"{high_score[0]} - {high_score[1]}", True, (0, 0, 0)
+                    ), (x_pos+10, y_counter+10)
                 )
-            y_counter += 50
+                y_counter += 50
 
     def new_game(self):
         """Starts the actual game.
@@ -164,7 +175,9 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.high_scores.append((self.text_input, self.points))
-                    self.high_scores = sorted(self.high_scores, key=lambda points: points[1], reverse=True)
+                    self.high_scores = sorted(
+                        self.high_scores, key=lambda points: points[1], reverse=True
+                        )
                     self.high_scores = self.high_scores[:4]
                     self.game_over()
                 elif event.key == pygame.K_BACKSPACE:
