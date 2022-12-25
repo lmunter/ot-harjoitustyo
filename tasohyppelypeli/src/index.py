@@ -3,8 +3,7 @@ import pygame
 from my_platform import Platform
 from player import Player
 
-#tehtävää vielä: luokka- ja sekvenssikaaviot
-#                tee lisää testejä
+#tehtävää vielä: lisää testejä
 class Game:
     """Class that gathers the pieces of the game and sets it up.
 
@@ -16,6 +15,7 @@ class Game:
             can_jump: remembers whether the player can jump or not
             points: counts player's score
             high_scores: list containing at most five highest scores
+            text_input: contains playername for recording high scores
             screen: initializes a display surface and manages it
     """
 
@@ -35,6 +35,7 @@ class Game:
         self.can_jump = True
         self.points = 0
         self.high_scores = []
+        self.text_input = ""
 
         self.screen = pygame.display.set_mode([1920, 1080])
         pygame.display.set_caption("Skeittaaja rotkoon")
@@ -167,7 +168,7 @@ class Game:
             pygame.draw.rect(self.screen, (0, 0, 255), input_field, 2)
             pygame.display.flip()
 
-    def check_user_input(self):
+    def check_user_input(self, testing = False):
         """Records what the player is typing.
 
         """
@@ -179,7 +180,8 @@ class Game:
                         self.high_scores, key=lambda points: points[1], reverse=True
                         )
                     self.high_scores = self.high_scores[:4]
-                    self.game_over()
+                    if not testing:
+                        self.game_over()
                 elif event.key == pygame.K_BACKSPACE:
                     self.text_input = self.text_input[:-1]
                 else:
