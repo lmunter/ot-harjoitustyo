@@ -16,4 +16,6 @@
 | 18.12. | 6 | Ennätyksien talletus ja testausta. |
 | 19.12. | 2 | Hienosäätöä. |
 | 21.12. | 2 | Docstring-dokumentaatiota. |
-| Tunteja yhteensä: | 65 |
+| 23.12. | 4 | Luokka- ja sekvenssikaaviot. |
+| 25.12. | 6 | Testejä. |
+| Tunteja yhteensä: | 75 |

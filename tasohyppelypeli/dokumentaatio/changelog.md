@@ -20,3 +20,9 @@
 
 - Lisätty etusivu ja häviöruutu
 - Pelaajaa ja alustoja on nostettu hieman
+
+## Loppupalautus
+
+- Lisätty pistelaskuri
+- Oman nimen voi lisätä, kun saa uuden ennätyksen
+- Ennätykset näytetään etusivulla
