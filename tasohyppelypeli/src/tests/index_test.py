@@ -28,7 +28,8 @@ class TestGame(unittest.TestCase):
         self.game.check_user_input(testing = True)
         self.assertEqual(len(self.game.high_scores), 1)
     
-#    def test_high_scores_are_rendered_correctly(self):
-#        self.game.high_scores.append(("test", 100))
-#        self.game.render_high_scores(100, 100)
-#        self.assertEqual()
+    def test_high_scores_are_rendered_correctly(self):
+        self.game.high_scores.append(("test", 100))
+        test = self.game.render_high_scores(100, 100)
+        print(test)
+        self.assertEqual((test.x, test.y), (110, 110))

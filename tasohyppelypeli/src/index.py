@@ -78,12 +78,12 @@ class Game:
             )
         else:
             for high_score in self.high_scores:
-                self.screen.blit(
-                    self.font.render(
-                        f"{high_score[0]} - {high_score[1]}", True, (0, 0, 0)
-                    ), (x_pos+10, y_counter+10)
-                )
+                high_score_surf = self.font.render(
+                    f"{high_score[0]} - {high_score[1]}", True, (0, 0, 0)
+                    )
+                self.screen.blit(high_score_surf, (x_pos+10, y_counter+10))
                 y_counter += 50
+        return high_score_surf.get_rect(x=x_pos+10, y=y_counter-40)
 
     def new_game(self):
         """Starts the actual game.
