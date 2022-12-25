@@ -3,7 +3,6 @@ import pygame
 from my_platform import Platform
 from player import Player
 
-#tehtävää vielä: lisää testejä
 class Game:
     """Class that gathers the pieces of the game and sets it up.
 
